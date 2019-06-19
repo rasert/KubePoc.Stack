@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  kubepoc-gateway:
+    image: ${DOCKER_REGISTRY-}kubepocgateway
+    build:
+      context: ../../
+      dockerfile: KubePoc.Gateway/Dockerfile
+    depends_on:
+      - kubepoc-api
+
+  kubepoc-api:
+    image: ${DOCKER_REGISTRY-}kubepocapi
+    build:
+      context: ../../
+      dockerfile: KubePoc.API/Dockerfile
